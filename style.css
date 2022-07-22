@@ -1,0 +1,110 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  min-height: 100vh;
+  margin: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 60px auto repeat(3, 120px);
+  grid-template-areas:
+    "header menu menu menu"
+    "hero hero hero hero"
+    "main main . image"
+    "main main . extra"
+    "banner banner banner banner"
+  ;
+}
+
+.grid__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  padding: 1rem;
+}
+
+.grid__item--header {
+  background-color: #0F1629;
+  grid-area: header;
+}
+
+.grid__item--menu {
+  background-color: #EF3D4D;
+  grid-area: menu;
+}
+
+.grid__item--hero {
+  background-color: #4C86C6;
+  grid-area: hero;
+}
+
+.grid__item--main {
+  background-color: #24344B;
+  grid-area: main;
+}
+
+.grid__item--image {
+  background-color: #C1E4E6;
+  grid-area: image;
+}
+
+.grid__item--extra {
+  background-color: #4DBD97;
+  grid-area: extra;
+}
+
+.grid__item--banner {
+  background-color: #FFD169;
+  grid-area: banner;
+}
+
+.grid__item--image,
+.grid__item--extra,
+.grid__item--banner {
+  color: #000;
+}
+
+/* ============ TABLET SIZE ============ */
+@media screen and (max-width: 768px) {
+  .grid {
+    grid-template-rows: 60px auto auto repeat(2, 120px);
+    grid-template-areas:
+      "header header header header"
+      "hero hero hero hero"
+      "menu main main main"
+      "menu banner banner banner"
+      "menu extra extra image"
+    ;
+  }
+}
+
+/* ============ MOBILE SIZE ============ */
+@media screen and (max-width: 425px) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 60px) auto auto repeat(3, 120px);
+    grid-template-areas:
+      "header"
+      "menu"
+      "hero"
+      "main"
+      "banner"
+      "extra"
+      "image"
+    ;
+  }
+}
